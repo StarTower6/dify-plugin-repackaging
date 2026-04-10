@@ -56,7 +56,9 @@ jobs:
         run: |
           PIP_PRE=1 \
           PIP_MIRROR_URL=https://pypi.org/simple \
-          sed -i '/Step 3: Downloading dependencies/i \    find . -name "requirements.txt" -exec sed -i "s/pandas~=3.0.1/pandas~=2.2.2/g" {} +' ./plugin_repackaging.sh \
+          
+          sed -i '/Step 3: Downloading dependencies/i \    find . -name "requirements.txt" -exec sed -i "s/pandas~=3.0.1/pandas~=2.2.2/g" {} +' ./plugin_repackaging.sh
+          
           ./plugin_repackaging.sh \
           -p ${{ env.PIP_PLATFORM }} \
           -s ${{ env.PACKAGE_SUFFIX }} \
